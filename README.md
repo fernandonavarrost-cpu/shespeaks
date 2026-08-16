@@ -33,14 +33,3 @@ shespeaks/
     └── image/
         └── foto_mi.jpeg    # Foto da professora
 ```
-
-## Como executar
-
-Projeto estático, sem dependências ou build. Basta abrir o `index.html` no navegador.
-
-## Como personalizar
-
-- **Número do WhatsApp**: em `index.html`, na seção de contato, substitua `https://wa.me/` pelo número completo, ex.: `https://wa.me/55XXXXXXXXXXX`.
-- **Instagram**: o link para `@teachermi_` também está na seção de contato do `index.html`.
-- **Foto da professora**: substitua o arquivo `public/image/foto_mi.jpeg` mantendo o mesmo nome.
-- **Cores e tipografia**: ajuste as cores e fontes em `public/css/style.css`.
