@@ -2,6 +2,8 @@
 
 Landing page da **She Speaks**: curso de inglês online, individual ou em grupos pequenos, pensado para mulheres. Feita pela professora Michelle.
 
+Acesse o site em: **https://fernandonavarrost-cpu.github.io/shespeaks/**
+
 ## Funcionalidades
 
 - **Hero** de abertura com chamada para ação
