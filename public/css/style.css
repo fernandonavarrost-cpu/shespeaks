@@ -1,0 +1,712 @@
+/* ===== RESET GLOBAL ===== */
+/* Zera margens, paddings e padroniza o box-sizing de todos os elementos */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Rolagem suave nativa e tamanho base da fonte */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+/* Estilo base do corpo: fonte, cor de texto, fundo e espaçamento */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #4A3238;
+  background: #FCF6F6;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Evita que imagens ultrapassem o container */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove sublinhado de links e herda a cor do elemento pai */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove marcadores de listas */
+ul {
+  list-style: none;
+}
+
+/* Container centralizado que limita a largura do conteúdo */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== NAVEGAÇÃO ===== */
+/* Cabeçalho fixo no topo, translúcido com leve desfoque */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(114, 47, 55, 0.15);
+}
+
+/* Alinha logo e menu na mesma linha dentro do cabeçalho */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+/* Logotipo da marca em serifa */
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #722F37;
+  letter-spacing: 0.5px;
+}
+
+/* Menu de navegação desktop disposto em linha */
+.nav-menu {
+  display: flex;
+  gap: 32px;
+}
+
+/* Links do menu */
+.nav-menu a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #7A4A50;
+  letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+
+/* Cor bordo ao passar o mouse nos links */
+.nav-menu a:hover {
+  color: #722F37;
+}
+
+/* Botão hambúrguer, visível apenas no mobile */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #7A4A50;
+  cursor: pointer;
+}
+
+/* ===== HERO ===== */
+/* Banner de abertura ocupando a altura da tela, centralizado */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 64px;
+  background: linear-gradient(160deg, #FCF6F6 0%, #F8E9EA 40%, #F1DCDD 100%);
+  position: relative;
+}
+
+/* Mancha decorativa de fundo do hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(114, 47, 55, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Conteúdo do hero acima da decoração */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+/* Rótulo superior do hero em caixa alta */
+.hero-label {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #722F37;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+/* Título principal do hero */
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #3A1D22;
+  margin-bottom: 24px;
+}
+
+/* Destaque em bordo dentro do título */
+.hero h1 span {
+  color: #722F37;
+}
+
+/* Subtítulo do hero */
+.hero p {
+  font-size: 1.1rem;
+  color: #7A4A50;
+  max-width: 520px;
+  margin: 0 auto 40px;
+}
+
+/* ===== BOTÕES ===== */
+/* Base comum dos botões */
+.btn {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 16px 40px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.3px;
+}
+
+/* Botão principal em gradiente de bordo */
+.btn-primary {
+  background: linear-gradient(135deg, #722F37, #8E3A46);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(114, 47, 55, 0.3);
+}
+
+/* Efeito hover: eleva o botão e intensifica a sombra */
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(114, 47, 55, 0.4);
+  background: linear-gradient(135deg, #5D2027, #722F37);
+}
+
+/* Botão de WhatsApp com a cor oficial da marca */
+.btn-whatsapp {
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+
+/* Efeito hover do botão de WhatsApp */
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+  background: #20bd5a;
+}
+
+/* ===== SEÇÕES ===== */
+/* Espaçamento vertical padrão das seções */
+.section {
+  padding: 80px 0;
+}
+
+/* Compensa a altura da navbar fixa ao rolar até as âncoras */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Variação de seção com fundo blush */
+.section-alt {
+  background: #F8E9EA;
+}
+
+/* Cabeçalho padrão das seções, centralizado */
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+/* Etiqueta superior das seções em caixa alta */
+.section-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #722F37;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+
+/* Título das seções em serifa */
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #3A1D22;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+/* Subtítulo das seções */
+.section-header p {
+  color: #8A5A60;
+  font-size: 1.05rem;
+}
+
+/* ===== SOBRE ===== */
+/* Grid em duas colunas: foto e texto da professora */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* Placeholder da foto com gradiente de fundo */
+.foto-placeholder {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #F1DCDD, #F8E9EA);
+  box-shadow: 0 8px 32px rgba(114, 47, 55, 0.12);
+}
+
+/* Imagem preenche e corta dentro do placeholder */
+.foto-placeholder span,
+.foto-placeholder img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Título da seção sobre */
+.sobre-texto h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  color: #3A1D22;
+  margin-bottom: 20px;
+}
+
+/* Parágrafos descritivos da seção sobre */
+.sobre-texto p {
+  font-size: 0.95rem;
+  color: #7A4A50;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+/* Citação da missão, destacada com borda lateral bordo */
+.sobre-missao {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #722F37;
+  font-style: italic;
+  border-left: 3px solid #C98A94;
+  padding-left: 20px;
+  margin-top: 12px;
+}
+
+/* ===== COMO FUNCIONA ===== */
+/* Grade com os 3 passos do método */
+.passos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* Card de cada passo, centralizado com fundo branco */
+.passo-card {
+  text-align: center;
+  padding: 40px 32px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(114, 47, 55, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Eleva o card ao passar o mouse */
+.passo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(114, 47, 55, 0.14);
+}
+
+/* Número circular do passo em gradiente bordo */
+.passo-numero {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C98A94, #722F37);
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+/* Título do passo */
+.passo-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #3A1D22;
+  margin-bottom: 14px;
+}
+
+/* Descrição do passo */
+.passo-card p {
+  font-size: 0.9rem;
+  color: #8A5A60;
+}
+
+/* ===== DIFERENCIAIS ===== */
+/* Grade com os 6 diferenciais */
+.diferenciais-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Card de diferencial, centralizado com fundo branco */
+.diferencial-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(114, 47, 55, 0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Eleva o card ao passar o mouse */
+.diferencial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(114, 47, 55, 0.12);
+}
+
+/* Ícone ilustrativo do diferencial */
+.diferencial-icon {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+}
+
+/* Título do diferencial */
+.diferencial-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #3A1D22;
+  margin-bottom: 12px;
+}
+
+/* Descrição do diferencial */
+.diferencial-card p {
+  font-size: 0.9rem;
+  color: #8A5A60;
+}
+
+/* ===== DEPOIMENTOS ===== */
+/* Grade com os depoimentos das alunas */
+.depoimentos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Card de depoimento com fundo branco */
+.depoimento-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 32px;
+  box-shadow: 0 4px 20px rgba(114, 47, 55, 0.06);
+  transition: transform 0.3s;
+}
+
+/* Eleva o card ao passar o mouse */
+.depoimento-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Espaçamento abaixo do texto do depoimento */
+.depoimento-texto {
+  margin-bottom: 24px;
+}
+
+/* Citação do depoimento em itálico */
+.depoimento-texto p {
+  font-size: 0.95rem;
+  color: #7A4A50;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* Nome da aluna */
+.depoimento-autor strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #3A1D22;
+}
+
+/* Tempo de curso da aluna */
+.depoimento-autor span {
+  font-size: 0.8rem;
+  color: #A67A7E;
+}
+
+/* ===== CONTATO ===== */
+/* Layout centralizado em coluna única com o cartão */
+.contato-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+/* Cartão branco que agrupa a chamada e os canais de contato */
+.contato-card {
+  width: 100%;
+  max-width: 560px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 48px 40px;
+  text-align: center;
+  border: 1px solid rgba(114, 47, 55, 0.06);
+  box-shadow: 0 4px 20px rgba(114, 47, 55, 0.08);
+}
+
+/* Chamada principal dentro do cartão */
+.contato-chamada {
+  font-size: 0.95rem;
+  color: #7A4A50;
+  margin-bottom: 32px;
+}
+
+/* Ações de contato lado a lado */
+.contato-acoes {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Item de canal de contato em formato pill */
+.contato-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  border-radius: 50px;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s;
+}
+
+/* Ícone do canal de contato */
+.contato-item-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+/* Texto do canal de contato em coluna */
+.contato-item-texto {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Título do canal */
+.contato-item-texto strong {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Legenda do canal */
+.contato-item-texto small {
+  font-size: 0.78rem;
+  opacity: 0.9;
+}
+
+/* Canal de Instagram em gradiente bordo */
+.btn-instagram {
+  background: linear-gradient(135deg, #722F37, #C98A94);
+  box-shadow: 0 4px 16px rgba(114, 47, 55, 0.3);
+}
+
+/* Efeito hover do canal de Instagram */
+.btn-instagram:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(114, 47, 55, 0.4);
+  background: linear-gradient(135deg, #5D2027, #722F37);
+}
+
+/* ===== FOOTER ===== */
+/* Rodapé com fundo bordo escuro e texto claro centralizado */
+.footer {
+  background: #3A1D22;
+  color: #D8C2C4;
+  text-align: center;
+  padding: 48px 0;
+}
+
+/* Linhas de texto do rodapé */
+.footer-content p {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+/* Remove margem inferior da última linha do rodapé */
+.footer-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== RESPONSIVO ===== */
+/* Tablet e laptops pequenos (até 992px) */
+@media (max-width: 992px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .section-header h2 {
+    font-size: 2.1rem;
+  }
+
+  .sobre-texto h2 {
+    font-size: 1.9rem;
+  }
+
+  .sobre-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .foto-placeholder {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .passos-grid,
+  .depoimentos-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .diferenciais-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Celulares em paisagem e tablets pequenos (até 768px) */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    flex-direction: column;
+    gap: 0;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(114, 47, 55, 0.15);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .sobre-texto h2 {
+    font-size: 1.7rem;
+  }
+
+  .passo-card h3,
+  .diferencial-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .passo-card,
+  .diferencial-card,
+  .depoimento-card {
+    padding: 28px 20px;
+  }
+
+  .diferenciais-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* Celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .btn {
+    padding: 12px 28px;
+    font-size: 0.85rem;
+  }
+
+  .contato-card {
+    padding: 32px 20px;
+  }
+
+  .contato-acoes {
+    flex-direction: column;
+  }
+
+  .contato-item {
+    justify-content: center;
+  }
+}
