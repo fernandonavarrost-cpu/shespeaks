@@ -4,6 +4,8 @@ Landing page da **She Speaks**: curso de inglês online, individual ou em grupos
 
 Acesse o site em: **https://fernandonavarrost-cpu.github.io/shespeaks/**
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 ## Funcionalidades
 
 - **Hero** de abertura com chamada para ação
@@ -35,3 +37,9 @@ shespeaks/
     └── image/
         └── foto_mi.jpeg    # Foto da professora
 ```
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
+Copyright (c) 2026 Fernando Navarro.
