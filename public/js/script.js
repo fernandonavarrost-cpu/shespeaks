@@ -1,3 +1,4 @@
+/* Copyright (c) 2026 Fernando Navarro. Licenciado sob a MIT License. */
 /* ===== SHE SPEAKS - INTERAÇÕES ===== */
 
 /* Abre e fecha o menu mobile ao clicar no ícone hambúrguer */
