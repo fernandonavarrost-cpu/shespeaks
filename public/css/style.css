@@ -1,4 +1,5 @@
 /* Copyright (c) 2026 Fernando Navarro. Licenciado sob a MIT License. */
+
 /* ===== RESET GLOBAL ===== */
 /* Zera margens, paddings e padroniza o box-sizing de todos os elementos */
 *,
@@ -9,6 +10,45 @@
   box-sizing: border-box;
 }
 
+/* ===== VARIÁVEIS ===== */
+/* Paleta central do projeto, definida na raiz para fácil manutenção */
+:root {
+  /* Marca (bordo) */
+  --cor-primaria: #722F37;
+  --cor-primaria-clara: #8E3A46;
+  --cor-primaria-escura: #5D2027;
+  --cor-acento: #C98A94;
+
+  /* Fundos */
+  --cor-fundo: #FCF6F6;
+  --cor-fundo-alt: #F8E9EA;
+  --cor-fundo-blush: #F1DCDD;
+
+  /* Textos */
+  --cor-texto: #4A3238;
+  --cor-texto-escuro: #3A1D22;
+  --cor-texto-medio: #7A4A50;
+  --cor-texto-claro: #8A5A60;
+  --cor-texto-suave: #A67A7E;
+  --cor-texto-footer: #D8C2C4;
+
+  /* Neutros / auxiliares */
+  --cor-branco: #fff;
+
+  /* WhatsApp */
+  --cor-whatsapp: #25d366;
+  --cor-whatsapp-hover: #20bd5a;
+
+  /* RGB para uso em rgba() */
+  --rgb-primaria: 114, 47, 55;
+  --rgb-whatsapp: 37, 211, 102;
+  --rgb-branco: 255, 255, 255;
+
+  /* Fontes */
+  --fonte-titulo: "Elms Sans", sans-serif;
+  --fonte-corpo: "Quicksand", sans-serif;
+}
+
 /* Rolagem suave nativa e tamanho base da fonte */
 html {
   scroll-behavior: smooth;
@@ -17,9 +57,10 @@ html {
 
 /* Estilo base do corpo: fonte, cor de texto, fundo e espaçamento */
 body {
-  font-family: 'Poppins', sans-serif;
-  color: #4A3238;
-  background: #FCF6F6;
+  font-family: var(--fonte-corpo);
+  font-weight: 400;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -57,9 +98,9 @@ ul {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(var(--rgb-branco), 0.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(114, 47, 55, 0.15);
+  border-bottom: 1px solid rgba(var(--rgb-primaria), 0.15);
 }
 
 /* Alinha logo e menu na mesma linha dentro do cabeçalho */
@@ -70,12 +111,12 @@ ul {
   height: 64px;
 }
 
-/* Logotipo da marca em serifa */
+/* Logotipo da marca */
 .logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
   font-weight: 700;
-  color: #722F37;
+  color: var(--cor-primaria);
   letter-spacing: 0.5px;
 }
 
@@ -87,16 +128,16 @@ ul {
 
 /* Links do menu */
 .nav-menu a {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 500;
-  color: #7A4A50;
+  color: var(--cor-texto-medio);
   letter-spacing: 0.3px;
   transition: color 0.2s;
 }
 
 /* Cor bordo ao passar o mouse nos links */
 .nav-menu a:hover {
-  color: #722F37;
+  color: var(--cor-primaria);
 }
 
 /* Botão hambúrguer, visível apenas no mobile */
@@ -105,21 +146,22 @@ ul {
   background: none;
   border: none;
   font-size: 1.5rem;
-  color: #7A4A50;
+  color: var(--cor-texto-medio);
   cursor: pointer;
 }
 
 /* ===== HERO ===== */
 /* Banner de abertura ocupando a altura da tela, centralizado */
 .hero {
-  min-height: 100vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 64px;
-  background: linear-gradient(160deg, #FCF6F6 0%, #F8E9EA 40%, #F1DCDD 100%);
+  padding: 64px 0 48px;
+  background: linear-gradient(160deg, var(--cor-fundo) 0%, var(--cor-fundo-alt) 40%, var(--cor-fundo-blush) 100%);
   position: relative;
+  margin: 20px 20px 48px;
 }
 
 /* Mancha decorativa de fundo do hero */
@@ -130,7 +172,7 @@ ul {
   right: -20%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(114, 47, 55, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(var(--rgb-primaria), 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -144,44 +186,42 @@ ul {
 /* Rótulo superior do hero em caixa alta */
 .hero-label {
   display: inline-block;
-  font-family: 'Playfair Display', serif;
-  font-size: 0.95rem;
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
   font-weight: 600;
-  color: #722F37;
+  color: var(--cor-primaria);
   letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
+  text-transform: uppercase;}
 
 /* Título principal do hero */
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.4rem;
+  font-family: var(--fonte-titulo);
+  font-size: 4rem;
   font-weight: 700;
   line-height: 1.2;
-  color: #3A1D22;
-  margin-bottom: 24px;
+  color: var(--cor-texto-escuro);
+  margin-bottom: 20px;
 }
 
 /* Destaque em bordo dentro do título */
 .hero h1 span {
-  color: #722F37;
+  color: var(--cor-primaria);
 }
 
 /* Subtítulo do hero */
 .hero p {
-  font-size: 1.1rem;
-  color: #7A4A50;
+  font-size: 1.35rem;
+  color: var(--cor-texto-medio);
   max-width: 520px;
-  margin: 0 auto 40px;
+  margin: 0 auto 32px;
 }
 
 /* ===== BOTÕES ===== */
 /* Base comum dos botões */
 .btn {
   display: inline-block;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
+  font-family: var(--fonte-corpo);
+  font-size: 1.05rem;
   font-weight: 600;
   padding: 16px 40px;
   border-radius: 50px;
@@ -193,36 +233,36 @@ ul {
 
 /* Botão principal em gradiente de bordo */
 .btn-primary {
-  background: linear-gradient(135deg, #722F37, #8E3A46);
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(114, 47, 55, 0.3);
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-primaria-clara));
+  color: var(--cor-branco);
+  box-shadow: 0 4px 16px rgba(var(--rgb-primaria), 0.3);
 }
 
 /* Efeito hover: eleva o botão e intensifica a sombra */
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(114, 47, 55, 0.4);
-  background: linear-gradient(135deg, #5D2027, #722F37);
+  box-shadow: 0 6px 24px rgba(var(--rgb-primaria), 0.4);
+  background: linear-gradient(135deg, var(--cor-primaria-escura), var(--cor-primaria));
 }
 
 /* Botão de WhatsApp com a cor oficial da marca */
 .btn-whatsapp {
-  background: #25d366;
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+  background: var(--cor-whatsapp);
+  color: var(--cor-branco);
+  box-shadow: 0 4px 16px rgba(var(--rgb-whatsapp), 0.3);
 }
 
 /* Efeito hover do botão de WhatsApp */
 .btn-whatsapp:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
-  background: #20bd5a;
+  box-shadow: 0 6px 24px rgba(var(--rgb-whatsapp), 0.4);
+  background: var(--cor-whatsapp-hover);
 }
 
 /* ===== SEÇÕES ===== */
 /* Espaçamento vertical padrão das seções */
 .section {
-  padding: 80px 0;
+  padding: 60px 0;
 }
 
 /* Compensa a altura da navbar fixa ao rolar até as âncoras */
@@ -232,41 +272,41 @@ ul {
 
 /* Variação de seção com fundo blush */
 .section-alt {
-  background: #F8E9EA;
+  background: var(--cor-fundo-alt);
 }
 
 /* Cabeçalho padrão das seções, centralizado */
 .section-header {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 40px;
+  margin: 0 auto 32px;
 }
 
 /* Etiqueta superior das seções em caixa alta */
 .section-tag {
   display: inline-block;
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #722F37;
+  color: var(--cor-primaria);
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 16px;
 }
 
-/* Título das seções em serifa */
+/* Título das seções */
 .section-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
+  font-family: var(--fonte-titulo);
+  font-size: 2.8rem;
   font-weight: 700;
-  color: #3A1D22;
+  color: var(--cor-texto-escuro);
   line-height: 1.3;
   margin-bottom: 16px;
 }
 
 /* Subtítulo das seções */
 .section-header p {
-  color: #8A5A60;
-  font-size: 1.05rem;
+  color: var(--cor-texto-claro);
+  font-size: 1.25rem;
 }
 
 /* ===== SOBRE ===== */
@@ -274,7 +314,7 @@ ul {
 .sobre-grid {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  gap: 56px;
+  gap: 40px;
   align-items: center;
 }
 
@@ -284,8 +324,8 @@ ul {
   aspect-ratio: 5 / 4;
   border-radius: 28px;
   overflow: hidden;
-  background: linear-gradient(135deg, #F1DCDD, #F8E9EA);
-  box-shadow: 0 8px 32px rgba(114, 47, 55, 0.12);
+  background: linear-gradient(135deg, var(--cor-fundo-blush), var(--cor-fundo-alt));
+  box-shadow: 0 8px 32px rgba(var(--rgb-primaria), 0.12);
 }
 
 /* Imagem preenche e corta dentro do placeholder */
@@ -299,27 +339,30 @@ ul {
 
 /* Título da seção sobre */
 .sobre-texto h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.1rem;
-  color: #3A1D22;
+  font-family: var(--fonte-titulo);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--cor-texto-escuro);
+  line-height: 1.3;
   margin-bottom: 20px;
 }
 
 /* Parágrafos descritivos da seção sobre */
 .sobre-texto p {
-  font-size: 0.95rem;
-  color: #7A4A50;
-  margin-bottom: 20px;
+  font-size: 1.15rem;
+  color: var(--cor-texto-medio);
+  margin-bottom: 16px;
   line-height: 1.7;
 }
 
 /* Citação da missão, destacada com borda lateral bordo */
 .sobre-missao {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  color: #722F37;
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--cor-primaria);
   font-style: italic;
-  border-left: 3px solid #C98A94;
+  border-left: 3px solid var(--cor-acento);
   padding-left: 20px;
   margin-top: 12px;
 }
@@ -335,17 +378,17 @@ ul {
 /* Card de cada passo, centralizado com fundo branco */
 .passo-card {
   text-align: center;
-  padding: 40px 32px;
-  background: #fff;
+  padding: 32px 28px;
+  background: var(--cor-branco);
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(114, 47, 55, 0.08);
+  box-shadow: 0 4px 20px rgba(var(--rgb-primaria), 0.08);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 /* Eleva o card ao passar o mouse */
 .passo-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(114, 47, 55, 0.14);
+  box-shadow: 0 8px 32px rgba(var(--rgb-primaria), 0.14);
 }
 
 /* Número circular do passo em gradiente bordo */
@@ -353,10 +396,10 @@ ul {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #C98A94, #722F37);
-  color: #fff;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
+  background: linear-gradient(135deg, var(--cor-acento), var(--cor-primaria));
+  color: var(--cor-branco);
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -366,16 +409,17 @@ ul {
 
 /* Título do passo */
 .passo-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  color: #3A1D22;
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cor-texto-escuro);
   margin-bottom: 14px;
 }
 
 /* Descrição do passo */
 .passo-card p {
-  font-size: 0.9rem;
-  color: #8A5A60;
+  font-size: 1.1rem;
+  color: var(--cor-texto-claro);
 }
 
 /* ===== DIFERENCIAIS ===== */
@@ -388,18 +432,18 @@ ul {
 
 /* Card de diferencial, centralizado com fundo branco */
 .diferencial-card {
-  background: #fff;
+  background: var(--cor-branco);
   border-radius: 20px;
-  padding: 40px 32px;
+  padding: 32px 28px;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(114, 47, 55, 0.06);
+  box-shadow: 0 4px 20px rgba(var(--rgb-primaria), 0.06);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 /* Eleva o card ao passar o mouse */
 .diferencial-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(114, 47, 55, 0.12);
+  box-shadow: 0 8px 32px rgba(var(--rgb-primaria), 0.12);
 }
 
 /* Ícone ilustrativo do diferencial */
@@ -410,16 +454,17 @@ ul {
 
 /* Título do diferencial */
 .diferencial-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  color: #3A1D22;
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cor-texto-escuro);
   margin-bottom: 12px;
 }
 
 /* Descrição do diferencial */
 .diferencial-card p {
-  font-size: 0.9rem;
-  color: #8A5A60;
+  font-size: 1.1rem;
+  color: var(--cor-texto-claro);
 }
 
 /* ===== DEPOIMENTOS ===== */
@@ -432,10 +477,10 @@ ul {
 
 /* Card de depoimento com fundo branco */
 .depoimento-card {
-  background: #fff;
+  background: var(--cor-branco);
   border-radius: 20px;
-  padding: 40px 32px;
-  box-shadow: 0 4px 20px rgba(114, 47, 55, 0.06);
+  padding: 32px 28px;
+  box-shadow: 0 4px 20px rgba(var(--rgb-primaria), 0.06);
   transition: transform 0.3s;
 }
 
@@ -451,8 +496,8 @@ ul {
 
 /* Citação do depoimento em itálico */
 .depoimento-texto p {
-  font-size: 0.95rem;
-  color: #7A4A50;
+  font-size: 1.15rem;
+  color: var(--cor-texto-medio);
   line-height: 1.7;
   font-style: italic;
 }
@@ -460,14 +505,15 @@ ul {
 /* Nome da aluna */
 .depoimento-autor strong {
   display: block;
-  font-size: 0.95rem;
-  color: #3A1D22;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--cor-texto-escuro);
 }
 
 /* Tempo de curso da aluna */
 .depoimento-autor span {
-  font-size: 0.8rem;
-  color: #A67A7E;
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
 }
 
 /* ===== CONTATO ===== */
@@ -482,19 +528,19 @@ ul {
 .contato-card {
   width: 100%;
   max-width: 560px;
-  background: #fff;
+  background: var(--cor-branco);
   border-radius: 20px;
-  padding: 48px 40px;
+  padding: 40px 32px;
   text-align: center;
-  border: 1px solid rgba(114, 47, 55, 0.06);
-  box-shadow: 0 4px 20px rgba(114, 47, 55, 0.08);
+  border: 1px solid rgba(var(--rgb-primaria), 0.06);
+  box-shadow: 0 4px 20px rgba(var(--rgb-primaria), 0.08);
 }
 
 /* Chamada principal dentro do cartão */
 .contato-chamada {
-  font-size: 0.95rem;
-  color: #7A4A50;
-  margin-bottom: 32px;
+  font-size: 1.15rem;
+  color: var(--cor-texto-medio);
+  margin-bottom: 24px;
 }
 
 /* Ações de contato lado a lado */
@@ -512,14 +558,14 @@ ul {
   gap: 12px;
   padding: 16px 28px;
   border-radius: 50px;
-  color: #fff;
-  font-family: 'Poppins', sans-serif;
+  color: var(--cor-branco);
+  font-family: var(--fonte-corpo);
   transition: all 0.3s;
 }
 
 /* Ícone do canal de contato */
 .contato-item-icon {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   line-height: 1;
 }
 
@@ -532,42 +578,42 @@ ul {
 
 /* Título do canal */
 .contato-item-texto strong {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 0.3px;
 }
 
 /* Legenda do canal */
 .contato-item-texto small {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   opacity: 0.9;
 }
 
 /* Canal de Instagram em gradiente bordo */
 .btn-instagram {
-  background: linear-gradient(135deg, #722F37, #C98A94);
-  box-shadow: 0 4px 16px rgba(114, 47, 55, 0.3);
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-acento));
+  box-shadow: 0 4px 16px rgba(var(--rgb-primaria), 0.3);
 }
 
 /* Efeito hover do canal de Instagram */
 .btn-instagram:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(114, 47, 55, 0.4);
-  background: linear-gradient(135deg, #5D2027, #722F37);
+  box-shadow: 0 6px 24px rgba(var(--rgb-primaria), 0.4);
+  background: linear-gradient(135deg, var(--cor-primaria-escura), var(--cor-primaria));
 }
 
 /* ===== FOOTER ===== */
 /* Rodapé com fundo bordo escuro e texto claro centralizado */
 .footer {
-  background: #3A1D22;
-  color: #D8C2C4;
+  background: var(--cor-texto-escuro);
+  color: var(--cor-texto-footer);
   text-align: center;
-  padding: 48px 0;
+  padding: 40px 0;
 }
 
 /* Linhas de texto do rodapé */
 .footer-content p {
-  font-size: 0.85rem;
+  font-size: 1rem;
   margin-bottom: 4px;
 }
 
@@ -580,20 +626,20 @@ ul {
 /* Tablet e laptops pequenos (até 992px) */
 @media (max-width: 992px) {
   .hero h1 {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
   }
 
   .section-header h2 {
-    font-size: 2.1rem;
+    font-size: 2.4rem;
   }
 
   .sobre-texto h2 {
-    font-size: 1.9rem;
+    font-size: 2.2rem;
   }
 
   .sobre-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
 
   .foto-placeholder {
@@ -621,11 +667,11 @@ ul {
     top: 64px;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(var(--rgb-branco), 0.98);
     flex-direction: column;
     gap: 0;
     padding: 16px 0;
-    border-bottom: 1px solid rgba(114, 47, 55, 0.15);
+    border-bottom: 1px solid rgba(var(--rgb-primaria), 0.15);
   }
 
   .nav-menu.active {
@@ -635,7 +681,7 @@ ul {
   .nav-menu a {
     display: block;
     padding: 14px 24px;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
   }
 
   .menu-toggle {
@@ -647,38 +693,38 @@ ul {
   }
 
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.6rem;
   }
 
   .hero p {
-    font-size: 0.95rem;
+    font-size: 1.15rem;
   }
 
   .section {
-    padding: 48px 0;
+    padding: 40px 0;
   }
 
   .section-header {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 
   .section-header h2 {
-    font-size: 1.8rem;
+    font-size: 2.1rem;
   }
 
   .sobre-texto h2 {
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
 
   .passo-card h3,
   .diferencial-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
   }
 
   .passo-card,
   .diferencial-card,
   .depoimento-card {
-    padding: 28px 20px;
+    padding: 24px 18px;
   }
 
   .diferenciais-grid {
@@ -691,16 +737,16 @@ ul {
 /* Celulares pequenos (até 480px) */
 @media (max-width: 480px) {
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
   .btn {
     padding: 12px 28px;
-    font-size: 0.85rem;
+    font-size: 1rem;
   }
 
   .contato-card {
-    padding: 32px 20px;
+    padding: 28px 18px;
   }
 
   .contato-acoes {
